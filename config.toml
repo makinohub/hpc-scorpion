@@ -1,3 +1,21 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "http://localhost/hpc-denovo/"
+publishDir = "hpc-denovo"
+title = "Denovo — HPC cluster of biology.tohoku.ac.jp"
+theme = "hugo-theme-nonblog"
+languageCode = "ja"
+hasCJKLanguage = true
+noTimes = true
+disableKinds = ["RSS"]
+pygmentsCodefences = true
+pygmentsUseClasses = true
+
+[author]
+name = "Watal M. Iwasaki"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+logo_src = "logo.png"
+logo_alt = "logo.png"
+theme_color = "#400E82"
