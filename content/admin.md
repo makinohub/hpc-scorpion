@@ -58,7 +58,7 @@ draft = true
 
 ## Add a new user
 
-1.  Check a new entry on [Google Form](https://docs.google.com/forms/d/13PUga_MUGX5cuFJ5dUjMC9BC1P1cQN4rohS_g-AQIz8/edit)
+1.  Check a new entry on [Google Form](https://docs.google.com/forms/d/1Lb1Mu07HyLxTPJO2IPQPoYidoHg_VXgB46zeS2lxQJs/edit)
 
 1.  Create an account:
 

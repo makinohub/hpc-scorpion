@@ -4,7 +4,7 @@ menu = "main"
 weight = 1
 +++
 
-*Scorpion* is a high performance computing cluster in the Biology bldg., Tohoku University.
+*Scorpion* is a high performance computing cluster in the Biology dept., Tohoku University.
 
 ## News
 

@@ -8,7 +8,7 @@ weight = 5
 
 1.  Read through all the pages in this document.
 1.  [Prepare an SSH key pair on your local computer]({{< relref "usage.md#how-to-setup-ssh-keys" >}}).
-1.  Complete [the online registration form](https://goo.gl/forms/kxe6AWalGjH4wg5t2).
+1.  Complete [the online registration form](https://forms.gle/8bMtnevb9oxsRz6q9).
 1.  Accept the invitation to [the user mailing list](https://groups.google.com/forum/#!forum/scorpion-tohoku).
 1.  Login to the server: `ssh <USERNAME>@scorpion.biology.tohoku.ac.jp`
 
@@ -74,7 +74,7 @@ weight = 5
     The permissions of `~/.ssh` and `~/.ssh/id_ed25519` must be `700` and `600`, respectively.
 
 1.  Copy and paste the whole content of the public key (**NOT** private key) to
-    [the online registration form](https://goo.gl/forms/kxe6AWalGjH4wg5t2).
+    [the online registration form](https://forms.gle/8bMtnevb9oxsRz6q9).
     For example, `pbcopy` command is useful on macOS:
 
     ```sh
