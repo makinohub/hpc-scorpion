@@ -18,7 +18,7 @@ draft = true
 1.  Run `sudo shutdown -h now` to stop the head node.
 
 
-## Keep the log
+## Documentation
 
 ### Preparation
 
@@ -54,6 +54,18 @@ draft = true
 1.  Make a new branch to commit the updates.
 
 1.  Make a Pull Request to [heavywatal/hpc-scorpion](https://github.com/heavywatal/hpc-scorpion).
+
+
+### Deploy document
+
+```sh
+make public && make deploy
+```
+
+1.  Generate public documents.
+
+1.  Copy generated documents to `scorpion:/var/www/html/`.
+
 
 
 ## Add a new user
