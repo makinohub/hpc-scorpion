@@ -4,6 +4,9 @@
 all: private
 	@:
 
+watch:
+	hugo -w --environment development
+
 private:
 	hugo --environment development
 
