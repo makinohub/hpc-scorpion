@@ -1,5 +1,6 @@
 baseURL = "http://localhost/hpc-scorpion/"
 publishDir = "hpc-scorpion"
+buildDrafts = true
 title = "Scorpion — HPC cluster of biology.tohoku.ac.jp"
 theme = "hugo-theme-nonblog"
 languageCode = "ja"

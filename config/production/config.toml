@@ -1,0 +1,3 @@
+baseURL = "http://scorpion.biology.tohoku.ac.jp/"
+publishDir = "public"
+buildDrafts = false
