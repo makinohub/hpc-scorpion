@@ -9,8 +9,8 @@ weight = 5
 1.  Read through all the pages in this document.
 1.  [Prepare an SSH key pair on your local computer]({{< relref "usage.md#how-to-setup-ssh-keys" >}}).
 1.  Complete [the online registration form](https://goo.gl/forms/kxe6AWalGjH4wg5t2).
-1.  Accept the invitation to [the user mailing list](https://groups.google.com/forum/#!forum/denovo-tohoku).
-1.  Login to the server: `ssh <USERNAME>@denovo.biology.tohoku.ac.jp`
+1.  Accept the invitation to [the user mailing list](https://groups.google.com/forum/#!forum/scorpion-tohoku).
+1.  Login to the server: `ssh <USERNAME>@scorpion.biology.tohoku.ac.jp`
 
 <!--more-->
 
@@ -18,7 +18,7 @@ weight = 5
 
 - Access:
     - Feel free to post any question and request to
-      [the mailing list](https://groups.google.com/forum/#!forum/denovo-tohoku).
+      [the mailing list](https://groups.google.com/forum/#!forum/scorpion-tohoku).
       It will help other users and improving this document.
       Do NOT contact the administrators personally.
     - No graphical user interface (GUI) is available;
@@ -85,18 +85,18 @@ weight = 5
     you can login from the local computer with the private key `~/.ssh/id_ed25519`.
 
     ```
-    ssh your_username_on_denovo@denovo.biology.tohoku.ac.jp
+    ssh your_username_on_scorpion@scorpion.biology.tohoku.ac.jp
     ```
 
 1.  (Optional) Create `~/.ssh/config` on your local computer:
 
     ```
-    Host denovo
-      Hostname denovo.biology.tohoku.ac.jp
-      User your_username_on_denovo
+    Host scorpion
+      Hostname scorpion.biology.tohoku.ac.jp
+      User your_username_on_scorpion
     ```
 
-    Then you can login with the shorter command: `ssh denovo`.
+    Then you can login with the shorter command: `ssh scorpion`.
 
 
 ## PBS job scheduler

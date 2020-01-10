@@ -1,6 +1,6 @@
-baseURL = "http://localhost/hpc-denovo/"
-publishDir = "hpc-denovo"
-title = "Denovo — HPC cluster of biology.tohoku.ac.jp"
+baseURL = "http://localhost/hpc-scorpion/"
+publishDir = "hpc-scorpion"
+title = "Scorpion — HPC cluster of biology.tohoku.ac.jp"
 theme = "hugo-theme-nonblog"
 languageCode = "ja"
 hasCJKLanguage = true

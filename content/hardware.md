@@ -15,10 +15,10 @@ Compute node
 
 ## Computer
 
-| Node    | Hostname   | CPU                    | GHz  | FLOPS  | Cores | RAM  |
-| ------- | ---------- | ---------------------- | ---- | ------ | ----- | ---- |
-| head    | `denovo`   | Intel Xeon Silver 4208 | 2.10 |        | 2x8   | 96GB |
-| compute | `denovo01` | Intel Xeon Silver 4216 | 2.10 |        | 2x16  | 96GB |
+| Node    | Hostname     | CPU                    | GHz  | FLOPS  | Cores | RAM  |
+| ------- | ------------ | ---------------------- | ---- | ------ | ----- | ---- |
+| head    | `scorpion`   | Intel Xeon Silver 4208 | 2.10 |        | 2x8   | 96GB |
+| compute | `scorpion01` | Intel Xeon Silver 4216 | 2.10 |        | 2x16  | 96GB |
 
 
 ## Storage

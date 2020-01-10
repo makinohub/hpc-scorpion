@@ -24,18 +24,18 @@ draft = true
 
 1.  Install [Hugo](https://gohugo.io/) on your local machine.
 
-1.  Fork [heavywatal/hpc-denovo](https://github.com/heavywatal/hpc-denovo) to your account.
+1.  Fork [heavywatal/hpc-scorpion](https://github.com/heavywatal/hpc-scorpion) to your account.
 
 1.  Clone your fork repository to your local machine:
 
     ```sh
-    REPO=https://github.com/{YOUR_NAME_HERE}/hpc-denovo.git
+    REPO=https://github.com/{YOUR_NAME_HERE}/hpc-scorpion.git
     git clone -b master --single-branch --recurse-submodules $REPO
-    cd hpc-denovo/
+    cd hpc-scorpion/
     ```
 
 1.  Set `upstream` repository:
-    `git remote add upstream https://github.com/heavywatal/hpc-denovo.git`
+    `git remote add upstream https://github.com/heavywatal/hpc-scorpion.git`
 
 
 ### Routine
@@ -44,7 +44,7 @@ draft = true
 
 1.  Start a local hugo server to preview the output:
     `hugo -Dw server`<br>
-    - View: http://localhost:1313/hpc-denovo/
+    - View: http://localhost:1313/hpc-scorpion/
       (the port may vary)
     - Stop: <kbd>ctrl</kbd><kbd>c</kbd>
 
@@ -53,7 +53,7 @@ draft = true
 
 1.  Make a new branch to commit the updates.
 
-1.  Make a Pull Request to [heavywatal/hpc-denovo](https://github.com/heavywatal/hpc-denovo).
+1.  Make a Pull Request to [heavywatal/hpc-scorpion](https://github.com/heavywatal/hpc-scorpion).
 
 
 ## Add a new user
@@ -88,12 +88,12 @@ draft = true
     ```
 
 1.  Add the user (and his/her mentor) to
-    [denovo-tohoku](https://groups.google.com/forum/#!forum/denovo-tohoku):
+    [scorpion-tohoku](https://groups.google.com/forum/#!forum/scorpion-tohoku):
     "Manage" => "Direct add members".
     Message example:
 
     ```
-    Your email address has been registered to denovo-tohoku mailing list.
+    Your email address has been registered to scorpion-tohoku mailing list.
     Various notifications such as server maintenance and updates will be delivered.
     You can also post questions and requests here.
     ```
@@ -104,10 +104,10 @@ draft = true
     Dear ______,
     CC: Prof. ______,
 
-    You have been successfully registered as a user of Denovo system.
+    You have been successfully registered as a user of Scorpion system.
     Try loggin in to the server with the following command:
 
-    ssh ______@denovo.biology.tohoku.ac.jp
+    ssh ______@scorpion.biology.tohoku.ac.jp
 
     Best,
     Watal
@@ -233,7 +233,7 @@ BiocManager::install(lib = .Library.site)
 
 `/etc/pbs.conf` in head node:
 ```ini
-PBS_SERVER=denovo
+PBS_SERVER=scorpion
 PBS_START_SERVER=1
 PBS_START_SCHED=1
 PBS_START_COMM=1

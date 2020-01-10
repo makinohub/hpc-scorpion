@@ -4,7 +4,7 @@ menu = "main"
 weight = 1
 +++
 
-*Denovo* is a high performance computing cluster in the Biology bldg., Tohoku University.
+*Scorpion* is a high performance computing cluster in the Biology bldg., Tohoku University.
 
 ## News
 
@@ -16,4 +16,4 @@ weight = 1
 
 ## Contact
 
-[Watal M. Iwasaki](mailto:heavywatal@tohoku.ac.jp?subject=[hpc-denovo])
+[Watal M. Iwasaki](mailto:heavywatal@tohoku.ac.jp?subject=[hpc-scorpion])
