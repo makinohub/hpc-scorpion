@@ -133,7 +133,7 @@ make public && make deploy
     DIR_MODE=0700
     ```
 -   Clean `/etc/skel/`.
--   Create `/etc/profile.d/path.sh` to set `PATH` for all the users.
+-   Create `/etc/profile.d/scorpion.sh` to set `PATH` for all the users.
 -   Disable `motd`:
     ```sh
     cd /etc/update-motd.d
@@ -148,7 +148,7 @@ make public && make deploy
 
 ```
 sudo apt update
-sudo apt install build-essential g++-8 zsh
+sudo apt install build-essential zsh emacs g++-8 clang-8
 ```
 
 ### Homebrew
@@ -158,13 +158,14 @@ https://docs.brew.sh/Homebrew-on-Linux
 - If the software is available on Homebrew, use it.
 - `brew` must be executed by a non-root user.
 - Unlink `gcc` to remove it from `PATH`.
-- Append `eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)` to `/etc/profile.d/path.sh`.
+- Append `eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)` to `/etc/profile.d/scorpion.sh`.
 
 
 ### Python
 
 Install python3 and some packages:
 ```sh
+sudo apt install python3.8
 brew install python
 pip3 install --upgrade pip setuptools wheel
 pip3 install pandas scikit-learn seaborn biopython
@@ -178,7 +179,8 @@ pip3 list --outdated
 
 ### R
 
-https://cran.r-project.org/bin/linux/ubuntu/
+- https://cran.r-project.org/bin/linux/ubuntu/
+- https://cran.r-project.org/doc/manuals/R-admin.html
 
 Install R from the official repository:
 ```sh
@@ -188,10 +190,9 @@ sudo apt update
 sudo apt install r-base r-base-dev
 ```
 
-Configure `.libPaths()` in `${R_HOME}/etc/Rprofile.site`:
-```
-.Library.site = "/home/linuxbrew/lib/R/library"
-.libPaths(.libPaths())
+Set `R_LIBS_SITE` in `/etc/profile.d/scorpion.sh`:
+```sh
+export R_LIBS_SITE="/home/local/lib/R/library"
 ```
 
 Install some `-dev` packages:
@@ -234,7 +235,7 @@ BiocManager::install(lib = .Library.site)
 
 ### Others
 
-- Download an archive to `/home/local/Downloads/`
+- Download an archive to `/home/local/src/`
 - Install it with a prefix `/home/local`
 - If the software does not provide any installation method,
   move the whole directory to `/home/local/Cellar/` with a version number,
@@ -245,18 +246,20 @@ BiocManager::install(lib = .Library.site)
 
 `/etc/pbs.conf` in head node:
 ```ini
+PBS_EXEC=/opt/pbs
 PBS_SERVER=scorpion
 PBS_START_SERVER=1
 PBS_START_SCHED=1
 PBS_START_COMM=1
 PBS_START_MOM=0
-PBS_EXEC=/opt/pbs
 PBS_HOME=/var/spool/pbs
 PBS_CORE_LIMIT=unlimited
-PBS_SCP=/bin/rcp
+PBS_SCP=/usr/bin/scp
 ```
 
 `PBS_START_MOM=1` in compute nodes.
+
+Some config files and logs are stored in `$PBS_HOME` (`/var/spool/pbs/`).
 
 
 ### Configuring the Server and Queues

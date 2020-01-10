@@ -22,7 +22,7 @@ Ubuntu 18.04 LTS (Bionic Beaver)
 - Compilers and interpreters
     - gcc **7.4.0**, 8.3.0
     - python 2.7.17
-    - python3 3.6.9
+    - python3 **3.6.9**, 3.8.0
     - R 3.6.2
 - Other tools
     - git 2.17.1
@@ -81,6 +81,11 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - stringtie 1.3.6
 - varscan 2.4.3
 - velvet 1.2.10
+
+`/home/local/bin`
+
+- [ms](http://home.uchicago.edu/~rhudson1/source/mksamples.html)
+
 
 ### Python packages
 
