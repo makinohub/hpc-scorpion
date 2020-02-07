@@ -85,18 +85,19 @@ make public && make deploy
 1.  Update NIS:
 
     ```sh
-    make -C /var/yp
-    ypbind -c
-    ypcat passwd
+    sudo make -C /var/yp
+    sudo ypbind -c
+    sudo ypcat passwd
     ```
 
 1.  Configure SSH:
 
     ```sh
-    vim /home/${NEWUSER}/.ssh/authorized_keys
-    chmod 700 /home/${NEWUSER}/.ssh
-    chmod 600 /home/${NEWUSER}/.ssh/authorized_keys
-    chown -R ${NEWUSER}:users /home/${NEWUSER}/.ssh
+    sudo mkdir /home/${NEWUSER}/.ssh
+    sudo vim /home/${NEWUSER}/.ssh/authorized_keys
+    sudo chmod 700 /home/${NEWUSER}/.ssh
+    sudo chmod 600 /home/${NEWUSER}/.ssh/authorized_keys
+    sudo chown -R ${NEWUSER}:users /home/${NEWUSER}/.ssh
     ```
 
 1.  Add the user (and his/her mentor) to
@@ -117,8 +118,10 @@ make public && make deploy
     CC: Prof. ______,
 
     You have been successfully registered as a user of Scorpion system.
-    Try loggin in to the server with the following command:
+    Try logging in to the server with the following command:
 
+    ssh scorpion
+    or
     ssh ______@scorpion.biology.tohoku.ac.jp
 
     Best,

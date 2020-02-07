@@ -56,9 +56,13 @@ weight = 5
 
 ## How to setup SSH keys
 
-1.  Execute the following command on your local computer to generate keys:
+1.  Prepare UNIX-like OS such as macOS and Linux.
+    Windows users can setup Linux (Ubuntu) environment via [WSL](https://www.google.co.jp/search?q=wsl+windows).
+
+1.  Generate SSH keys on the terminal of your local computer with the following command:
 
     ```
+    mkdir ~/.ssh
     ssh-keygen -t ed25519 -N '' -f ~/.ssh/id_ed25519_scorpion
     ```
 
@@ -71,16 +75,7 @@ weight = 5
     # -rw-r--r--  1 winston staff  92 Apr  4 10:00 id_ed25519_scorpion.pub
     ```
 
-    The permissions of `~/.ssh` and `~/.ssh/id_ed25519_scorpion` must be `700` and `600`, respectively.
-
-1.  Create `~/.ssh/config` on your local computer, and write some lines as follows:
-
-    ```
-    Host scorpion scorpion.biology.tohoku.ac.jp
-      Hostname scorpion.biology.tohoku.ac.jp
-      IdentityFile ~/.ssh/id_ed25519_scorpion
-      User your_username_on_scorpion
-    ```
+    The [permissions](https://www.google.co.jp/search?q=permission+unix) of `~/.ssh` and `~/.ssh/id_ed25519_scorpion` must be `700` and `600`, respectively.
 
 1.  Copy and paste the whole content of the public key (**NOT** private key) to
     [the online registration form](https://forms.gle/8bMtnevb9oxsRz6q9).
@@ -90,11 +85,26 @@ weight = 5
     cat ~/.ssh/id_ed25519_scorpion.pub | pbcopy
     ```
 
+1.  Create `~/.ssh/config` on your local computer, and write some lines as follows:
+
+    ```
+    Host scorpion scorpion.biology.tohoku.ac.jp
+      Hostname scorpion.biology.tohoku.ac.jp
+      IdentityFile ~/.ssh/id_ed25519_scorpion
+      User YOUR_USERNAME
+    ```
+
+    **Replace `YOUR_USERNAME`** with **the one you entered to the registration form**
+    (NOT the one on your local computer).
+
+
 1.  The administrator will notify you when your public key is registered to your `~/.ssh/authorized_keys` on the server.
     Then you can login to scorpion with the following command:
 
     ```sh
     ssh scorpion
+    # or
+    ssh YOUR_USERNAME@scorpion.biology.tohoku.ac.jp
     ```
 
 
