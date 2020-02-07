@@ -56,52 +56,51 @@ weight = 5
 
 ## How to setup SSH keys
 
-1.  Execute the following command on your local computer:
+1.  Execute the following command on your local computer to generate keys:
 
     ```
-    ssh-keygen -t ed25519 -N '' -f ~/.ssh/id_ed25519
+    ssh-keygen -t ed25519 -N '' -f ~/.ssh/id_ed25519_scorpion
     ```
 
 1.  Check the created keys:
 
     ```sh
     ls -al ~/.ssh
-    # drwx------ 11 winston staff 374 Apr 04 10:00 ./
-    # -rw-------  1 winston staff 399 Apr 04 10:00 id_ed25519
-    # -rw-r--r--  1 winston staff  92 Apr 04 10:00 id_ed25519.pub
+    # drwx------ 11 winston staff 374 Apr  4 10:00 ./
+    # -rw-------  1 winston staff 399 Apr  4 10:00 id_ed25519_scorpion
+    # -rw-r--r--  1 winston staff  92 Apr  4 10:00 id_ed25519_scorpion.pub
     ```
 
-    The permissions of `~/.ssh` and `~/.ssh/id_ed25519` must be `700` and `600`, respectively.
+    The permissions of `~/.ssh` and `~/.ssh/id_ed25519_scorpion` must be `700` and `600`, respectively.
+
+1.  Create `~/.ssh/config` on your local computer, and write some lines as follows:
+
+    ```
+    Host scorpion
+      IdentityFile ~/.ssh/id_ed25519_scorpion
+      Hostname scorpion.biology.tohoku.ac.jp
+      User your_username_on_scorpion
+    ```
 
 1.  Copy and paste the whole content of the public key (**NOT** private key) to
     [the online registration form](https://forms.gle/8bMtnevb9oxsRz6q9).
     For example, `pbcopy` command is useful on macOS:
 
     ```sh
-    cat ~/.ssh/id_ed25519.pub | pbcopy
+    cat ~/.ssh/id_ed25519_scorpion.pub | pbcopy
     ```
 
-1.  After the administrator adds your public key to your `~/.ssh/authorized_keys` on the server,
-    you can login from the local computer with the private key `~/.ssh/id_ed25519`.
+1.  The administrator will notify you when your public key is registered to your `~/.ssh/authorized_keys` on the server.
+    Then you can login to scorpion with the following command:
 
+    ```sh
+    ssh scorpion
     ```
-    ssh your_username_on_scorpion@scorpion.biology.tohoku.ac.jp
-    ```
-
-1.  (Optional) Create `~/.ssh/config` on your local computer:
-
-    ```
-    Host scorpion
-      Hostname scorpion.biology.tohoku.ac.jp
-      User your_username_on_scorpion
-    ```
-
-    Then you can login with the shorter command: `ssh scorpion`.
 
 
 ## PBS job scheduler
 
-Read [PBS User's Guide](https://www.google.co.jp/search?q=pbs+professional+19).
+Read [PBS User's Guide](https://www.google.co.jp/search?q=pbs+professional+19+user's+guide).
 
 ### Check ths system status
 
@@ -138,7 +137,7 @@ qsub hello.sh
 An example job script `hello.sh`:
 
 ```sh
-#!/bin/sh
+#!/bin/bash
 #PBS -N hello-world
 #PBS -j oe
 #PBS -l select=1:ncpus=1:mem=1gb
@@ -153,7 +152,7 @@ sleep 60
 An example of an array job `array.sh`:
 
 ```sh
-#!/bin/sh
+#!/bin/bash
 #PBS -N array-ms
 #PBS -j oe
 #PBS -l select=1:ncpus=1:mem=1gb
