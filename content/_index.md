@@ -11,7 +11,7 @@ weight = 1
 2019-12-26
 : System installed.
 
-2020-01-XX
+2020-02-XX
 : User registration started.
 
 ## Contact

@@ -10,7 +10,7 @@ weight = 5
 1.  [Prepare an SSH key pair on your local computer]({{< relref "usage.md#how-to-setup-ssh-keys" >}}).
 1.  Complete [the online registration form](https://forms.gle/8bMtnevb9oxsRz6q9).
 1.  Accept the invitation to [the user mailing list](https://groups.google.com/forum/#!forum/scorpion-tohoku).
-1.  Login to the server: `ssh <USERNAME>@scorpion.biology.tohoku.ac.jp`
+1.  Login to the server: `ssh USERNAME@scorpion.biology.tohoku.ac.jp`
 
 <!--more-->
 
@@ -76,9 +76,9 @@ weight = 5
 1.  Create `~/.ssh/config` on your local computer, and write some lines as follows:
 
     ```
-    Host scorpion
-      IdentityFile ~/.ssh/id_ed25519_scorpion
+    Host scorpion scorpion.biology.tohoku.ac.jp
       Hostname scorpion.biology.tohoku.ac.jp
+      IdentityFile ~/.ssh/id_ed25519_scorpion
       User your_username_on_scorpion
     ```
 
