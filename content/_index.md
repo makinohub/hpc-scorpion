@@ -11,9 +11,9 @@ weight = 1
 2019-12-26
 : System installed.
 
-2020-02-XX
+2020-02-26
 : User registration started.
 
 ## Contact
 
-[Watal M. Iwasaki](mailto:heavywatal@tohoku.ac.jp?subject=[hpc-scorpion])
+[Takashi Makino and Watal M. Iwasaki](mailto:tamakino@tohoku.ac.jp,heavywatal@tohoku.ac.jp?subject=[hpc-scorpion])

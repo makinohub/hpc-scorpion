@@ -9,7 +9,7 @@ weight = 5
 1.  Read through all the pages in this document.
 1.  [Prepare an SSH key pair on your local computer]({{< relref "usage.md#how-to-setup-ssh-keys" >}}).
 1.  Complete [the online registration form](https://forms.gle/8bMtnevb9oxsRz6q9).
-1.  Accept the invitation to [the user mailing list](https://groups.google.com/forum/#!forum/scorpion-tohoku).
+1.  Wait for a while until you are added to [the user mailing list](https://groups.google.com/forum/#!forum/scorpion-tohoku).
 1.  Login to the server: `ssh USERNAME@scorpion.biology.tohoku.ac.jp`
 
 <!--more-->
@@ -77,12 +77,9 @@ weight = 5
 
     The [permissions](https://www.google.co.jp/search?q=permission+unix) of `~/.ssh` and `~/.ssh/id_ed25519_scorpion` must be `700` and `600`, respectively.
 
-1.  Copy and paste the whole content of the public key (**NOT** private key) to
-    [the online registration form](https://forms.gle/8bMtnevb9oxsRz6q9).
-    For example, `pbcopy` command is useful on macOS:
-
     ```sh
-    cat ~/.ssh/id_ed25519_scorpion.pub | pbcopy
+    chmod 700 ~/.ssh
+    chmod 600 ~/.ssh/id_ed25519_scorpion
     ```
 
 1.  Create `~/.ssh/config` on your local computer, and write some lines as follows:
@@ -97,6 +94,13 @@ weight = 5
     **Replace `YOUR_USERNAME`** with **the one you entered to the registration form**
     (NOT the one on your local computer).
 
+1.  Copy and paste the whole content of the public key (**NOT** private key) to
+    [the online registration form](https://forms.gle/8bMtnevb9oxsRz6q9).
+    For example, `pbcopy` command is useful on macOS:
+
+    ```sh
+    cat ~/.ssh/id_ed25519_scorpion.pub | pbcopy
+    ```
 
 1.  The administrator will notify you when your public key is registered to your `~/.ssh/authorized_keys` on the server.
     Then you can login to scorpion with the following command:

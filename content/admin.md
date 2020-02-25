@@ -152,6 +152,7 @@ make public && make deploy
 ```
 sudo apt update
 sudo apt install build-essential zsh emacs g++-8 clang-8
+sudo apt install libblas-dev liblapack-dev libatlas-base-dev f2c
 ```
 
 ### Homebrew
