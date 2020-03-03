@@ -57,27 +57,32 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 - tmux 3.0
 - cmake 3.16
-- git 2.24
+- git 2.25
 - emacs 26.3
-- nano 4.7
+- nano 4.8
 
 ### Bioinformatics tools
 
 - bedtools 2.29
-- blast 2.9.0
+- blast 2.10.0
+- blat 36
 - bowtie2 2.3.5
 - bwa 0.7.17
-- gatk 4.1.4
+- gatk 4.1.5
 - hisat2 2.1.0
+- hmmer 3.3
 - htslib 1.10
+- lastz 1.04
 - libsequence
-- mafft 7.429
+- mafft 7.453
 - MEME 5.1.0
+- multiz 20191003
 - paml 4.9i
+- PHAST v1.3
 - RAxML 8.2.12
 - RepeatMasker 4.0.7
 - samtools 1.10
-- SeqKit 0.11
+- SeqKit 0.12
 - stringtie 1.3.6
 - varscan 2.4.3
 - velvet 1.2.10
