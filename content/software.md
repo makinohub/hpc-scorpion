@@ -20,10 +20,11 @@ Ubuntu 18.04 LTS (Bionic Beaver)
     - vi 8.0
     - nano 2.9.3
 - Compilers and interpreters
-    - gcc **7.4.0**, 8.3.0
+    - gcc **7.5.0**, 8.4.0
+    - clang 8.0
     - python 2.7.17
     - python3 **3.6.9**, 3.8.0
-    - R 3.6.2
+    - R 3.6.3
 - Other tools
     - git 2.17.1
     - cmake 3.10.2
@@ -47,7 +48,6 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 ### Compilers, Interpreters, and Libraries
 
 - gcc 5.5 (unlinked)
-- clang 8.0
 - python 3.7
 - boost 1.72
 - eigen 3.3.7
@@ -55,35 +55,39 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 ### General tools
 
-- tmux 3.0
-- cmake 3.16
-- git 2.25
+- tmux 3.1
+- cmake 3.17
+- git 2.27
 - emacs 26.3
-- nano 4.8
+- nano 4.9
 
 ### Bioinformatics tools
 
+- bcftools 1.10
 - bedtools 2.29
 - blast 2.10.0
 - blat 36
-- bowtie2 2.3.5
+- bowtie2 2.4.1
 - bwa 0.7.17
-- gatk 4.1.5
-- hisat2 2.1.0
+- fastp 0.20
+- gatk 4.1.8
+- hisat2 2.2.0
 - hmmer 3.3
 - htslib 1.10
 - lastz 1.04
 - libsequence
-- mafft 7.453
+- mafft 7.470
 - MEME 5.1.0
 - multiz 20191003
 - paml 4.9i
-- PHAST v1.3
+- PHAST v1.5
 - RAxML 8.2.12
 - RepeatMasker 4.0.7
 - samtools 1.10
 - SeqKit 0.12
-- stringtie 1.3.6
+- SnpEff 4.3
+- sratoolkit 2.10
+- stringtie 2.1.3
 - varscan 2.4.3
 - velvet 1.2.10
 
