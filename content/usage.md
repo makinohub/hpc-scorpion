@@ -6,7 +6,7 @@ weight = 5
 
 ## Getting Started
 
-1.  Read through all the pages in this document.
+1.  **Read through all the pages in this document.**
 1.  [Prepare an SSH key pair on your local computer]({{< relref "usage.md#how-to-setup-ssh-keys" >}}).
 1.  Complete [the online registration form](https://forms.gle/8bMtnevb9oxsRz6q9).
 1.  Wait for a while until you are added to [the user mailing list](https://groups.google.com/forum/#!forum/scorpion-tohoku).
@@ -24,8 +24,10 @@ weight = 5
     - No graphical user interface (GUI) is available;
       all the operation has to be carried out with a **command-line interface (CLI)** over **SSH** connection.
       Basic knowledge of shell scripting is required.
-    - The server is accessible **only from the Tohoku University LAN**.
-      You may want to consider [TAINS VPN](https://www.tains.tohoku.ac.jp/contents/remote/remote-access.html) for remote access.
+    - <strike>The server is accessible **only from the Tohoku University LAN**.
+      You may want to consider [TAINS VPN](https://www.tains.tohoku.ac.jp/contents/remote/remote-access.html) for remote access.</strike>
+      Now the server is temporarily accessible from everywhere.
+      Please keep the URL secret to reduce the potential risk of attacks.
 - Data Storage:
     - **10GB** disk space is allocated for each user.
       The size may be changed in the future.
@@ -82,17 +84,18 @@ weight = 5
     chmod 600 ~/.ssh/id_ed25519_scorpion
     ```
 
-1.  Create `~/.ssh/config` on your local computer, and write some lines as follows:
+1.  Create `~/.ssh/config` file on your local computer, and write some lines as follows:
 
     ```
     Host scorpion scorpion.biology.tohoku.ac.jp
       Hostname scorpion.biology.tohoku.ac.jp
       IdentityFile ~/.ssh/id_ed25519_scorpion
-      User YOUR_USERNAME
+      User tamakino
     ```
 
-    **Replace `YOUR_USERNAME`** with **the one you entered to the registration form**
+    **Replace `tamakino` with your user name on this server**
     (NOT the one on your local computer).
+    You can decide your user name, but it should be **short and lowercase alphabets** without any space or special character.
 
 1.  Copy and paste the whole content of the public key (**NOT** private key) to
     [the online registration form](https://forms.gle/8bMtnevb9oxsRz6q9).

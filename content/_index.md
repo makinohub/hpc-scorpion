@@ -8,11 +8,15 @@ weight = 1
 
 ## News
 
-2019-12-26
-: System installed.
+2020-08-30
+: System shutdown for the scheduled power outage.
 
 2020-02-26
 : User registration started.
+
+2019-12-26
+: System installed.
+
 
 ## Contact
 
