@@ -2,7 +2,6 @@ baseURL = "http://localhost/hpc-scorpion/"
 publishDir = "private"
 buildDrafts = true
 title = "Scorpion — HPC cluster of biology.tohoku.ac.jp"
-theme = "hugo-theme-nonblog"
 languageCode = "ja"
 hasCJKLanguage = true
 noTimes = true
@@ -15,6 +14,9 @@ name = "Watal M. Iwasaki"
 
 [markup.goldmark.renderer]
 unsafe = true
+
+[[module.imports]]
+path = "hugo-theme-nonblog"
 
 [params]
 logo_src = "logo.png"
