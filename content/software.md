@@ -48,46 +48,49 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 ### Compilers, Interpreters, and Libraries
 
 - gcc 5.5 (unlinked)
-- python 3.7
-- boost 1.72
-- eigen 3.3.7
+- python 3.9
+- boost 1.74
+- eigen 3.3.8
 - gsl 2.6
 
 ### General tools
 
 - tmux 3.1
-- cmake 3.17
-- git 2.27
-- emacs 26.3
-- nano 4.9
+- cmake 3.19
+- git 2.29
+- emacs 27.1
+- nano 5.3
 
 ### Bioinformatics tools
 
-- bcftools 1.10
+- bcftools 1.11
 - bedtools 2.29
-- blast 2.10.0
+- blast 2.11
 - blat 36
-- bowtie2 2.4.1
+- bowtie2 2.4.2
 - bwa 0.7.17
 - fastp 0.20
 - gatk 4.1.8
-- hisat2 2.2.0
+- hisat2 2.2.1
 - hmmer 3.3
-- htslib 1.10
+- htslib 1.11
 - lastz 1.04
-- libsequence
-- mafft 7.470
+- libsequence 1.9.8
+- mafft 7.475
 - MEME 5.1.0
 - multiz 20191003
 - paml 4.9i
 - PHAST v1.5
 - RAxML 8.2.12
 - RepeatMasker 4.0.7
-- samtools 1.10
-- SeqKit 0.12
+- RSEM 1.3.3
+- samtools 1.11
+- SeqKit 0.14
 - SnpEff 4.3
 - sratoolkit 2.10
-- stringtie 2.1.3
+- STAR 2.7.5
+- stringtie 2.1.4
+- Trinity 2.11
 - varscan 2.4.3
 - velvet 1.2.10
 
@@ -98,7 +101,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 ### Python packages
 
-`/home/linuxbrew/.linuxbrew/lib/python3.7/site-packages/`
+`/home/linuxbrew/.linuxbrew/lib/python3.9/site-packages/`
 
 - numpy
 - scipy
