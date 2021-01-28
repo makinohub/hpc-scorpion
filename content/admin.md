@@ -194,14 +194,26 @@ sudo apt update
 sudo apt install r-base r-base-dev
 ```
 
-Set `R_LIBS_SITE` in `/etc/profile.d/scorpion.sh`:
+Install R with Homebrew: `brew install r`
+
+Set `R_LIBS_USER` in `/etc/profile.d/scorpion.sh` in the all nodes:
 ```sh
-export R_LIBS_SITE="/home/local/lib/R/library"
+export R_LIBS_USER='~/.R/library/%v'
+```
+
+Create `Renviron.site` in `/home/linuxbrew/.R`:
+```sh
+R_LIBS_SITE='/home/linuxbrew/.R/library/%v'¬
+```
+
+Symlink them to `${R_HOME}/etc/`:
+```sh
+for x in /home/linuxbrew/.R/R*.site; do ln -s $x $(brew --prefix)/opt/r/lib/R/etc/${x##*/}; done
 ```
 
 Install some `-dev` packages:
 ```sh
-sudo apt install libssl-dev
+sudo apt install libssl-dev libv8-dev
 ```
 
 Install packages to site library:

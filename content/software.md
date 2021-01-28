@@ -49,6 +49,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 - gcc 5.5 (unlinked)
 - python 3.9
+- r 4.0
 - boost 1.74
 - eigen 3.3.8
 - gsl 2.6
