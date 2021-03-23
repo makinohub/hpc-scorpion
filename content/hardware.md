@@ -10,8 +10,10 @@ Head node
 : HPC5000-XCL224R2S x 1
 
 Compute node
-: HPC5000-XCL224R1S x 1
+: HPC5000-XCL224R1S x 2
 
+Switching hub
+: NETGEAR JGS516-300JPS (GbE 16ports)
 
 ## Computer
 
@@ -19,6 +21,7 @@ Compute node
 | ------- | ------------ | ---------------------- | ---- | ------ | ----- | ---- |
 | head    | `scorpion`   | Intel Xeon Silver 4208 | 2.10 |        | 2x8   | 96GB |
 | compute | `scorpion01` | Intel Xeon Silver 4216 | 2.10 |        | 2x16  | 96GB |
+| compute | `scorpion02` | Intel Xeon Gold 6242R  | 3.10 |        | 2x20  | 384GB |
 
 
 ## Storage

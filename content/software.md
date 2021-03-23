@@ -47,46 +47,46 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 ### Compilers, Interpreters, and Libraries
 
-- gcc 5.5 (unlinked)
+- gcc 10.2
 - python 3.9
 - r 4.0
-- boost 1.74
-- eigen 3.3.8
+- boost 1.75
+- eigen 3.3.9
 - gsl 2.6
 
 ### General tools
 
 - tmux 3.1
 - cmake 3.19
-- git 2.29
+- git 2.31
 - emacs 27.1
-- nano 5.3
+- nano 5.6
 
 ### Bioinformatics tools
 
-- bcftools 1.11
-- bedtools 2.29
+- bcftools 1.12
+- bedtools 2.30
 - blast 2.11
 - blat 36
 - bowtie2 2.4.2
 - bwa 0.7.17
 - fastp 0.20
-- gatk 4.1.8
+- gatk 4.2.0
 - hisat2 2.2.1
 - hmmer 3.3
-- htslib 1.11
+- htslib 1.12
 - lastz 1.04
 - libsequence 1.9.8
 - mafft 7.475
 - MEME 5.1.0
 - multiz 20191003
-- paml 4.9i
+- paml 4.9j
 - PHAST v1.5
 - RAxML 8.2.12
 - RepeatMasker 4.0.7
 - RSEM 1.3.3
-- samtools 1.11
-- SeqKit 0.14
+- samtools 1.12
+- SeqKit 0.15
 - SnpEff 4.3
 - sratoolkit 2.10
 - STAR 2.7.5

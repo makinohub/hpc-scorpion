@@ -8,6 +8,9 @@ weight = 1
 
 ## News
 
+2021-03-23
+: A new computation node `scorpion02` is added.
+
 2020-08-30
 : System shutdown for the scheduled power outage.
 
