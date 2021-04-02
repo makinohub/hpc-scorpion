@@ -128,6 +128,14 @@ make public && make deploy
     Watal
     ```
 
+### Remove a user
+
+1.  `sudo userdel --remove ${THE_USER}`
+1.  Update NIS
+1.  Remove the user from [scorpion-tohoku](https://groups.google.com/forum/#!forum/scorpion-tohoku):
+    "☑ Select => ⊖ Remove member"
+
+
 ## Initial settings
 
 -   Modify `/etc/adduser.conf`:
