@@ -209,15 +209,16 @@ Set `R_LIBS_USER` in `/etc/profile.d/scorpion.sh` in the all nodes:
 export R_LIBS_USER='~/.R/library/%v'
 ```
 
-Create `Renviron.site` in `/home/linuxbrew/.R`:
+Create `%v/site-library` and symlink it to the right place:
 ```sh
-R_LIBS_SITE='/home/linuxbrew/.R/library/%v'¬
+mkdir -p /home/linuxbrew/R/4.0/site-library
+ln -s /home/linuxbrew/R/4.0 $(brew --prefix)/lib/R/
+# make sure it is properly symlinked
+ls -l $(brew --prefix)/opt/r/lib/R/
+Rscript -e '.Library.site'
 ```
 
-Symlink them to `${R_HOME}/etc/`:
-```sh
-for x in /home/linuxbrew/.R/R*.site; do ln -s $x $(brew --prefix)/opt/r/lib/R/etc/${x##*/}; done
-```
+Put `Renviron.site` and `Rprofile.site` in `${R_HOME}/etc/` if necessary.
 
 Install some `-dev` packages:
 ```sh
