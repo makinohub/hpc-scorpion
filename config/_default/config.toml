@@ -16,7 +16,7 @@ name = "Watal M. Iwasaki"
 unsafe = true
 
 [[module.imports]]
-path = "hugo-theme-nonblog"
+path = "github.com/heavywatal/hugo-theme-nonblog"
 
 [params]
 logo_src = "logo.png"
