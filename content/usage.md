@@ -59,7 +59,18 @@ weight = 5
 ## How to setup SSH keys
 
 1.  Prepare UNIX-like OS such as macOS and Linux.
-    Windows users can setup Linux (Ubuntu) environment via [WSL](https://www.google.co.jp/search?q=wsl+windows).
+
+    - Windows users can setup Linux (Ubuntu) environment via [WSL](https://www.google.co.jp/search?q=wsl+windows).
+
+      In WSL terminal, create/open `/etc/wsl.conf` file (with a command like `sudo nano /etc/wsl.conf`)
+      and add the following lines:
+      ```
+      [automount]
+      options = "metadata"
+      ```
+
+      Then, **restart WSL** (or Windows) to enable the config above.
+      This setting is required to set permissions with `chmod` command.
 
 1.  Generate SSH keys on the terminal of your local computer with the following command:
 
@@ -68,23 +79,7 @@ weight = 5
     ssh-keygen -t ed25519 -N '' -f ~/.ssh/id_ed25519_scorpion
     ```
 
-1.  Check the created keys:
-
-    ```sh
-    ls -al ~/.ssh
-    # drwx------ 11 winston staff 374 Apr  4 10:00 ./
-    # -rw-------  1 winston staff 399 Apr  4 10:00 id_ed25519_scorpion
-    # -rw-r--r--  1 winston staff  92 Apr  4 10:00 id_ed25519_scorpion.pub
-    ```
-
-    The [permissions](https://www.google.co.jp/search?q=permission+unix) of `~/.ssh` and `~/.ssh/id_ed25519_scorpion` must be `700` and `600`, respectively.
-
-    ```sh
-    chmod 700 ~/.ssh
-    chmod 600 ~/.ssh/id_ed25519_scorpion
-    ```
-
-1.  Create `~/.ssh/config` file on your local computer, and write some lines as follows:
+1.  Create `~/.ssh/config` file (plain text, **not directory**) on your local computer, and write some lines as follows:
 
     ```
     Host scorpion scorpion.biology.tohoku.ac.jp
@@ -93,9 +88,29 @@ weight = 5
       User tamakino
     ```
 
-    **Replace `tamakino` with your user name on this server**
+    **Replace `tamakino` with your user name on scorpion server**
     (NOT the one on your local computer).
     You can decide your user name, but it should be **short and lowercase alphabets** without any space or special character.
+
+1.  Check the created keys and config file:
+
+    ```sh
+    ls -al ~/.ssh
+    # drwx------ 11 winston staff 374 Apr  4 10:00 ./
+    # -rw-r--r--  1 winston staff 749 Apr  4 10:00 config
+    # -rw-------  1 winston staff 399 Apr  4 10:00 id_ed25519_scorpion
+    # -rw-r--r--  1 winston staff  92 Apr  4 10:00 id_ed25519_scorpion.pub
+    ```
+
+    The [permissions](https://www.google.co.jp/search?q=permission+unix) of `~/.ssh` and `~/.ssh/id_ed25519_scorpion` must be `700` (`drwx------`) and `600` (`-rw-------`), respectively.
+    Execute the following commands to set permissions correctly:
+    ```sh
+    chmod 700 ~/.ssh
+    chmod 600 ~/.ssh/id_ed25519_scorpion
+    chmod 644 ~/.ssh/config
+    ```
+
+    Check `ls -al ~/.ssh` again.
 
 1.  Copy and paste the whole content of the public key (**NOT** private key) to
     [the online registration form](https://forms.gle/8bMtnevb9oxsRz6q9).
