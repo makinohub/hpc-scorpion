@@ -29,4 +29,4 @@ Switching hub
 | Type | Mount   | Size  | Drive | Array            |
 | ---- | ------- | ----- | ----- | ---------------- |
 | OS   | `/`     | 480GB | SSD   | RAID 1 (2x480GB) |
-| data | `/home` | 2TB   | HDD   | RAID 1 (2x2TB)   |
+| data | `/home` | 36TB  | HDD   | RAID 6 (6x10TB)  |

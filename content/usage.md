@@ -29,7 +29,7 @@ weight = 5
       Now the server is temporarily accessible from everywhere.
       Please keep the URL secret to reduce the potential risk of attacks.
 - Data Storage:
-    - **10GB** disk space is allocated for each user.
+    - **20GB** disk space is allocated for each user.
       The size may be changed in the future.
     - **Do NOT think this system as a long-term storage service**.
       Transfer output data to your local computer,

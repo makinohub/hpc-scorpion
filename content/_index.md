@@ -8,6 +8,10 @@ weight = 1
 
 ## News
 
+2021-08-08
+: System shutdown for the scheduled power outage.
+: Storage upgrade: `/home` 2TB → 36TB.
+
 2021-03-23
 : A new computation node `scorpion02` is added.
 
