@@ -47,70 +47,78 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 ### Compilers, Interpreters, and Libraries
 
-- gcc 10.2
+- gcc 11.2
 - python 3.9
-- r 4.0
-- boost 1.75
-- eigen 3.3.9
-- gsl 2.6
+- r 4.1
+- boost 1.76
+- eigen 3.4.0
+- gsl 2.7
 
 ### General tools
 
-- tmux 3.1
-- cmake 3.19
-- git 2.31
-- emacs 27.1
-- nano 5.6
+- tmux 3.2
+- cmake 3.22
+- git 2.34
+- emacs 27.2
+- nano 5.9
 
 ### Bioinformatics tools
 
-- bcftools 1.12
+- bcftools 1.14
 - bedtools 2.30
-- blast 2.11
+- blast 2.12
 - blat 36
-- bowtie2 2.4.2
+- bowtie2 2.4.4
 - bwa 0.7.17
 - fastp 0.20
 - gatk 4.2.0
 - hisat2 2.2.1
 - hmmer 3.3
-- htslib 1.12
+- htslib 1.14
 - lastz 1.04
 - libsequence 1.9.8
-- mafft 7.475
+- mafft 7.490
 - MEME 5.1.0
 - multiz 20191003
 - paml 4.9j
 - PHAST v1.5
 - RAxML 8.2.12
 - RepeatMasker 4.0.7
-- RSEM 1.3.3
-- samtools 1.12
-- SeqKit 0.15
+- samtools 1.14
+- SeqKit 2.1
 - SnpEff 4.3
-- sratoolkit 2.10
+- sratoolkit 2.11
 - STAR 2.7.5
 - stringtie 2.1.4
 - Trinity 2.11
-- varscan 2.4.3
+- varscan 2.4.4
 - velvet 1.2.10
 
 `/home/local/bin`
 
 - [ms](http://home.uchicago.edu/~rhudson1/source/mksamples.html)
+- RSEM 1.3.3
+- signalp 5.0b
+- tmhmm 2.0c
 
 
 ### Python packages
 
 `/home/linuxbrew/.linuxbrew/lib/python3.9/site-packages/`
 
-- numpy
-- scipy
-- pandas
-- scikit-learn
-- matplotlib
-- seaborn
+- arviz
 - biopython
+- matplotlib
+- numpy
+- pandas
+- psutil
+- pydataset
+- pystan
+- scikit-learn
+- scipy
+- seaborn
+- statsmodels
+- tqdm
 - Pillow
 
 ### R packages
