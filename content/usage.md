@@ -24,8 +24,8 @@ weight = 5
     - No graphical user interface (GUI) is available;
       all the operation has to be carried out with a **command-line interface (CLI)** over **SSH** connection.
       Basic knowledge of shell scripting is required.
-    - <strike>The server is accessible **only from the Tohoku University LAN**.
-      You may want to consider [TAINS VPN](https://www.tains.tohoku.ac.jp/contents/remote/remote-access.html) for remote access.</strike>
+    - <del>The server is accessible **only from the Tohoku University LAN**.
+      You may want to consider [TAINS VPN](https://www.tains.tohoku.ac.jp/contents/remote/remote-access.html) for remote access.</del>
       Now the server is temporarily accessible from everywhere.
       Please keep the URL secret to reduce the potential risk of attacks.
 - Data Storage:
@@ -128,6 +128,9 @@ weight = 5
     # or
     ssh YOUR_USERNAME@scorpion.biology.tohoku.ac.jp
     ```
+
+You can add another public key to `~/.ssh/authorized_keys` by yourself so that you can login from your secondary PC.
+Do not submit user registration twice.
 
 
 ## PBS job scheduler
