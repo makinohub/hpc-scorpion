@@ -58,7 +58,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 - tmux 3.2
 - cmake 3.22
-- git 2.34
+- git 2.35
 - emacs 27.2
 - nano 5.9
 
@@ -81,6 +81,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - MEME 5.1.0
 - multiz 20191003
 - paml 4.9j
+- PLINK v1.90b5
 - PHAST v1.5
 - RAxML 8.2.12
 - RepeatMasker 4.0.7
