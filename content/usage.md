@@ -54,7 +54,7 @@ weight = 5
         - PBS command: `pbsnodes`, `qstat`, `qsub`, etc.
     - Check [the list of available softwares]({{< relref "software.md" >}}).
       You can install additional softwares into your home directory,
-      or ask the administrator for system-wide installation.
+      or ask the administrator via the mailing list for system-wide installation.
 
 ## How to setup SSH keys
 
@@ -161,11 +161,16 @@ qdel <PBS_JOBID>
 
 ### Submit a job
 
-You can submit a job from command line or by using scripts:
+You can submit a job in several ways:
 
 ```sh
-qsub -N jobname -j oe -- /path/to/your/executable [args...]
-    # or
+# stdin
+echo "echo 'hello world!'; sleep 60" | qsub -N hello
+
+# giving the full path to a program
+qsub -N hello -- /bin/echo "hello world!"
+
+# job script
 qsub hello.sh
 ```
 
@@ -173,8 +178,7 @@ An example job script `hello.sh`:
 
 ```sh
 #!/bin/bash
-#PBS -N hello-world
-#PBS -j oe
+#PBS -N hello
 #PBS -l select=1:ncpus=1:mem=1gb
 
 pwd
@@ -189,7 +193,6 @@ An example of an array job `array.sh`:
 ```sh
 #!/bin/bash
 #PBS -N array-ms
-#PBS -j oe
 #PBS -l select=1:ncpus=1:mem=1gb
 #PBS -J 0-3
 
@@ -204,7 +207,6 @@ An equivalent job script in Python:
 ```py
 #!/usr/bin/env python3
 #PBS -N array-ms-py
-#PBS -j oe
 #PBS -l select=1:ncpus=1:mem=1gb
 #PBS -J 0-3
 import os
@@ -222,7 +224,7 @@ print(proc.stdout.decode(), end='')
 
 Useful options and environment variables:
 
-`-N job_name`
+`-N jobname`
 : to set job's name.
 
 `-o ***`, `-e ***`
@@ -239,10 +241,20 @@ Useful options and environment variables:
   A current index (`0`, `1`, ...) can be obtained via `PBS_ARRAY_INDEX`.
 
 `-l ***`
-: to request resources.
+: to request PBS job scheduler to allocate resources for a job.
+  A job has to wait in a queue until the requested resources are available.
+: e.g., `-l select=1:ncpus=4:mem=32gb:host=scorpion02`
+  requests 4 CPU cores and 32GB RAM (in total, not per core) on `scorpion02` node.
+: Note that it does not affect how a job script itself and programs run,
+  i.e., it does not automatically accelerate single-threaded jobs.
+  To achieve parallel execution using multiple CPU cores,
+  you need to write your script as such,
+  or to give an explicit option to each program like
+  `blast -num_threads 4`, `samtools -@ 4`, `make -j4`, etc.
 
-`-v VARIABLE=value`
+`-v VAR1=value,VAR2`
 : to export environment variables to the job.
+: `-V` to export all the variables in the current shell environment.
 
 `PBS_JOBID`
 : the ID of the job.

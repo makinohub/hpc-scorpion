@@ -48,7 +48,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 ### Compilers, Interpreters, and Libraries
 
 - gcc 11.2
-- python 3.9
+- python 3.10
 - r 4.1
 - boost 1.76
 - eigen 3.4.0
@@ -60,7 +60,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - cmake 3.22
 - git 2.35
 - emacs 27.2
-- nano 5.9
+- nano 6.1
 
 ### Bioinformatics tools
 
@@ -75,6 +75,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - hisat2 2.2.1
 - hmmer 3.3
 - htslib 1.14
+- kent-tools 401
 - lastz 1.04
 - libsequence 1.9.8
 - mafft 7.490
@@ -82,7 +83,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - multiz 20191003
 - paml 4.9j
 - PLINK v1.90b5
-- PHAST v1.5
+- PHAST v1.6
 - RAxML 8.2.12
 - RepeatMasker 4.0.7
 - samtools 1.14
