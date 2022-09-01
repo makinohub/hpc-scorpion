@@ -8,6 +8,11 @@ weight = 1
 
 ## News
 
+2022-08-28
+: System shutdown for the scheduled power outage.
+: OS upgrade: Ubuntu 18.04 LTS (Bionic Beaver) → Ubuntu 20.04 LTS (Focal Fossa).
+: Job system: PBS Professional 19 → OpenPBS 22
+
 2021-08-08
 : System shutdown for the scheduled power outage.
 : Storage upgrade: `/home` 2TB → 36TB.

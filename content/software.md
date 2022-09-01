@@ -6,28 +6,29 @@ weight = 20
 
 ## OS
 
-Ubuntu 18.04 LTS (Bionic Beaver)
+Ubuntu 20.04 LTS (Focal Fossa)
 
 ### System Library
 
 `/usr/bin`, `/bin`
 
 - Shells
-    - bash 4.4.20
-    - zsh 5.4.2
+    - bash 5.0.17
+    - zsh 5.8
 - Editors
-    - emacs 25.2.2
-    - vi 8.0
-    - nano 2.9.3
+    - emacs 26.3
+    - vi 8.1
+    - nano 4.8
 - Compilers and interpreters
-    - gcc **7.5.0**, 8.4.0
-    - clang 8.0
-    - python 2.7.17
-    - python3 **3.6.9**, 3.8.0
+    - gcc 9.4.0
+    - clang 10.0
+    - python 2.7.18
+    - python3 3.8.10
+    - ruby 2.7.0
     - R 3.6.3
 - Other tools
-    - git 2.17.1
-    - cmake 3.10.2
+    - git 2.25.1
+    - cmake 3.16.3
 
 Some tools are available in newer version. See below.
 
@@ -35,7 +36,7 @@ Some tools are available in newer version. See below.
 
 `/opt/pbs`
 
-[PBS Professional](https://pbspro.org/) 19.1.2
+[OpenPBS](https://github.com/openpbs/openpbs) 22.0
 
 
 ## Additional Tools
@@ -47,36 +48,36 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 ### Compilers, Interpreters, and Libraries
 
-- gcc 11.2
+- gcc 12.2
 - python 3.10
 - r 4.1
-- boost 1.76
+- boost 1.79
 - eigen 3.4.0
 - gsl 2.7
 
 ### General tools
 
-- tmux 3.2
-- cmake 3.22
-- git 2.35
-- emacs 27.2
-- nano 6.1
+- tmux 3.3
+- cmake 3.24
+- git 2.37
+- emacs 28.1
+- nano 6.4
 
 ### Bioinformatics tools
 
-- bcftools 1.14
+- bcftools 1.16
 - bedtools 2.30
-- blast 2.12
+- blast 2.13
 - blat 36
-- bowtie2 2.4.4
+- bowtie2 2.4.5
 - bwa 0.7.17
-- fastp 0.20
+- fastp 0.23.2
 - gatk 4.2.0
 - hisat2 2.2.1
 - hmmer 3.3
-- htslib 1.14
+- htslib 1.16
 - kent-tools 401
-- lastz 1.04
+- lastz 1.04.22
 - libsequence 1.9.8
 - mafft 7.490
 - MEME 5.1.0
@@ -86,10 +87,10 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - PHAST v1.6
 - RAxML 8.2.12
 - RepeatMasker 4.0.7
-- samtools 1.14
-- SeqKit 2.1
+- samtools 1.16
+- SeqKit 2.3
 - SnpEff 4.3
-- sratoolkit 2.11
+- sratoolkit 3.0
 - STAR 2.7.5
 - stringtie 2.1.4
 - Trinity 2.11
@@ -106,22 +107,25 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 ### Python packages
 
-`/home/linuxbrew/.linuxbrew/lib/python3.9/site-packages/`
+`/home/linuxbrew/.linuxbrew/lib/python3.10/site-packages/`
 
 - arviz
 - biopython
+- cmdstanpy
 - matplotlib
 - numpy
 - pandas
+- Pillow
 - psutil
-- pydataset
-- pystan
+- pytest
+- requests
 - scikit-learn
 - scipy
 - seaborn
 - statsmodels
+- tomli
 - tqdm
-- Pillow
+
 
 ### R packages
 
@@ -129,9 +133,9 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 - ape
 - BioConductor (Biostrings, GenomicRanges, *etc.*)
+- cmdstanr
 - cowplot
 - igraph
 - Rcpp
 - rgl
-- rstan
 - tidyverse (ggplot2, dplyr, tidyr, *etc.*)

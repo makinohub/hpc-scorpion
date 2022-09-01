@@ -177,16 +177,14 @@ https://docs.brew.sh/Homebrew-on-Linux
 
 Install python3 and some packages:
 ```sh
-sudo apt install python3.8
 brew install python
-pip3 install --upgrade pip setuptools wheel
-pip3 install pandas scikit-learn seaborn biopython
-pip3 install flake8 requests psutil Pillow
+$(brew --prefix)/bin/pip3 install -U pip setuptools wheel
+$(brew --prefix)/bin/pip3 install -U --upgrade-strategy=eager -r /home/linuxbrew/requirements.txt
 ```
 
 Check updates:
 ```sh
-pip3 list --outdated
+$(brew --prefix)/bin/pip3 list --outdated
 ```
 
 ### R
@@ -211,8 +209,8 @@ export R_LIBS_USER='~/.R/library/%v'
 
 Create `%v/site-library` and symlink it to the right place:
 ```sh
-mkdir -p /home/linuxbrew/R/4.0/site-library
-ln -s /home/linuxbrew/R/4.0 $(brew --prefix)/lib/R/
+mkdir -p /home/linuxbrew/R/4.2/site-library
+ln -s /home/linuxbrew/R/4.2 $(brew --prefix)/lib/R/
 # make sure it is properly symlinked
 ls -l $(brew --prefix)/opt/r/lib/R/
 Rscript -e '.Library.site'
