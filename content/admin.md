@@ -194,67 +194,99 @@ $(brew --prefix)/bin/pip3 list --outdated
 
 Install R from the official repository:
 ```sh
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" | sudo tee /etc/apt/sources.list.d/cran.list
+sudo apt install --no-install-recommends software-properties-common dirmngr
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
 sudo apt update
 sudo apt install r-base r-base-dev
 ```
 
-Install R with Homebrew: `brew install r`
-
-Set `R_LIBS_USER` in `/etc/profile.d/scorpion.sh` in the all nodes:
+Install some `-dev` packages required by R packages:
 ```sh
-export R_LIBS_USER='~/.R/library/%v'
+sudo apt install libcurl4-openssl-dev libxml2-dev
+sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev  # ragg
+sudo apt install libharfbuzz-dev libfribidi-dev  # textshaping
+sudo apt install libssl-dev libv8-dev
+sudo apt install libgeos-dev  # rgeos seurat
 ```
 
-Create `%v/site-library` and symlink it to the right place:
+Modify `/etc/R/Renviron.site` in the all nodes:
 ```sh
-mkdir -p /home/linuxbrew/R/4.2/site-library
-ln -s /home/linuxbrew/R/4.2 $(brew --prefix)/lib/R/
-# make sure it is properly symlinked
-ls -l $(brew --prefix)/opt/r/lib/R/
+#R_LIBS_SITE="/usr/local/lib/R/site-library/:${R_LIBS_SITE}:/usr/lib/R/library"
+R_LIBS_SITE="/home/local/lib/R/library/%v"
+R_LIBS_USER='~/.R/library/%v'
+```
+
+Create site library:
+```sh
+mkdir -p /home/local/lib/R/library/4.2
 Rscript -e '.Library.site'
 ```
 
-Put `Renviron.site` and `Rprofile.site` in `${R_HOME}/etc/` if necessary.
-
-Install some `-dev` packages:
+Install packages to site library as `root`:
 ```sh
-sudo apt install libssl-dev libv8-dev
+sudo MAKEFLAGS=-j8 R --no-save --no-restore-data
 ```
-
-Install packages to site library:
 ```r
-pkgs = c(
-  "Rcpp",
-  "devtools",
-  "tidyverse",
-  "cowplot",
-  "gridExtra",
-  "igraph",
-  "ape",
-  "rstan",
-  "doParallel",
-  "BiocManager"
-)
-install.packages(pkgs, lib = .Library.site)
+install.packages("pak", lib = .Library.site)
 
-biocpkgs = c(
-  "Biostrings",
-  "GenomicRanges",
-  "rtracklayer",
-  "VariantAnnotation",
-  "edgeR",
-  "topGO"
-)
-BiocManager::install(biocpkgs, lib = .Library.site)
+pkgs = "
+ape
+bayesplot
+BiocManager
+brms
+cowplot
+devtools
+future
+furrr
+ggrepel
+ggridges
+lme4
+palmerpenguins
+Rcpp
+rgl
+rmarkdown
+rstanarm
+Seurat
+tidyverse
+"
+pkgs = readLines(textConnection(trimws(pkgs)))
+pak::pkg_install(pkgs, lib = .Library.site)
+
+biopkgs = "
+Biostrings
+edgeR
+GenomicRanges
+ggtree
+rtracklayer
+topGO
+VariantAnnotation
+"
+biocpkgs = readLines(textConnection(trimws(biopkgs)))
+pak::pkg_install(biocpkgs, lib = .Library.site)
+
+pak::repo_add(stan = "https://mc-stan.org/r-packages")
+pak::pkg_install("cmdstanr", lib = .Library.site)
+library(cmdstanr)
+check_cmdstan_toolchain()
+install_cmdstan(cores = 4)
+cmdstan_path()
+cmdstan_version()
 ```
 
 Check updates from time to time:
-```r
-BiocManager::valid(lib = .Library.site)
-BiocManager::install(lib = .Library.site)
+```sh
+Rscript -e 'old.packages()'
+Rscript -e 'BiocManager::valid()'
 ```
+```r
+pkgs = rownames(old.packages(lib = .Library.site))
+pak::pkg_install(pkgs, lib = .Library.site)
+
+stdpkgs = rownames(old.packages(lib = .Library))
+pak::pkg_install(stdpkgs, lib = .Library)
+```
+
 
 ### Others
 

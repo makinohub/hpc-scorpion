@@ -25,7 +25,7 @@ Ubuntu 20.04 LTS (Focal Fossa)
     - python 2.7.18
     - python3 3.8.10
     - ruby 2.7.0
-    - R 3.6.3
+    - R 4.2.1
 - Other tools
     - git 2.25.1
     - cmake 3.16.3
@@ -50,7 +50,6 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 - gcc 12.2
 - python 3.10
-- r 4.1
 - boost 1.79
 - eigen 3.4.0
 - gsl 2.7
@@ -133,9 +132,14 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 - ape
 - BioConductor (Biostrings, GenomicRanges, *etc.*)
+- brms
 - cmdstanr
 - cowplot
 - igraph
+- lme4
 - Rcpp
 - rgl
+- rmarkdown
+- rstanarm
+- Seurat
 - tidyverse (ggplot2, dplyr, tidyr, *etc.*)
