@@ -100,7 +100,7 @@ make public && make deploy
     sudo chown -R ${NEWUSER}:users /home/${NEWUSER}/.ssh
     ```
 
-1.  Add the user (and his/her mentor) to
+1.  Add the user to
     [scorpion-tohoku](https://groups.google.com/forum/#!forum/scorpion-tohoku):
     "Manage" => "Direct add members".
     Message example:
@@ -117,7 +117,7 @@ make public && make deploy
     Dear ______,
     CC: Prof. ______,
 
-    You have been successfully registered as a user of Scorpion system.
+    You have been successfully registered as a user of the Scorpion system.
     Try logging in to the server with the following command:
 
     ssh scorpion
@@ -217,10 +217,16 @@ R_LIBS_SITE="/home/local/lib/R/library/%v"
 R_LIBS_USER='~/.R/library/%v'
 ```
 
+Append [RSPM](https://packagemanager.rstudio.com/) options to `/etc/R/Rprofile.site` in the all nodes:
+```r
+options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version["platform"], R.version["arch"], R.version["os"])))
+options(repos = c(CRAN = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"))
+options(BioC_mirror = "https://packagemanager.rstudio.com/bioconductor")
+```
+
 Create site library:
 ```sh
 mkdir -p /home/local/lib/R/library/4.2
-Rscript -e '.Library.site'
 ```
 
 Install packages to site library as `root`:
@@ -228,6 +234,11 @@ Install packages to site library as `root`:
 sudo MAKEFLAGS=-j8 R --no-save --no-restore-data
 ```
 ```r
+.Library.site
+.libPaths()
+getOption("repos")
+source("https://docs.rstudio.com/rspm/admin/check-user-agent.R")
+
 install.packages("pak", lib = .Library.site)
 
 pkgs = "
@@ -280,11 +291,11 @@ Rscript -e 'old.packages()'
 Rscript -e 'BiocManager::valid()'
 ```
 ```r
-pkgs = rownames(old.packages(lib = .Library.site))
-pak::pkg_install(pkgs, lib = .Library.site)
+pkgs = old.packages(lib = .Library.site) |> print()
+pak::pkg_install(rownames(pkgs), lib = .Library.site)
 
-stdpkgs = rownames(old.packages(lib = .Library))
-pak::pkg_install(stdpkgs, lib = .Library)
+stdpkgs = old.packages(lib = .Library) |> print()
+pak::pkg_install(rownames(stdpkgs), lib = .Library)
 ```
 
 
