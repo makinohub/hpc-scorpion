@@ -5,13 +5,13 @@ all: private
 	@:
 
 watch:
-	hugo -w --environment development
+	hugo -w
 
 private:
-	hugo --environment development
+	hugo
 
 public:
-	hugo --environment production
+	hugo --environment public
 
 deploy:
 	rsync -auvz public/ scorpion:/var/www/html/
