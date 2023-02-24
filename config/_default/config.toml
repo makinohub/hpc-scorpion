@@ -15,6 +15,8 @@ name = "Watal M. Iwasaki"
 [markup.goldmark.renderer]
 unsafe = true
 
+[module]
+workspace = "hugo.work"
 [[module.imports]]
 path = "github.com/heavywatal/hugo-theme-nonblog"
 
