@@ -6,14 +6,15 @@ languageCode = "ja"
 hasCJKLanguage = true
 noTimes = true
 disableKinds = ["RSS"]
-pygmentsCodefences = true
-pygmentsUseClasses = true
 
 [author]
 name = "Watal M. Iwasaki"
 
 [markup.goldmark.renderer]
 unsafe = true
+
+[markup.highlight]
+noClasses = false
 
 [module]
 workspace = "hugo.work"
