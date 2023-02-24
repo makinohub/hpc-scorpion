@@ -8,6 +8,9 @@ weight = 1
 
 ## News
 
+2023-03-01
+: System shutdown for the scheduled power outage.
+
 2022-08-28
 : System shutdown for the scheduled power outage.
 : OS upgrade: Ubuntu 18.04 LTS (Bionic Beaver) → Ubuntu 20.04 LTS (Focal Fossa).
