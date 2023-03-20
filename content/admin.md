@@ -220,7 +220,7 @@ R_LIBS_USER='~/.R/library/%v'
 Append [RSPM](https://packagemanager.rstudio.com/) options to `/etc/R/Rprofile.site` in the all nodes:
 ```r
 options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version["platform"], R.version["arch"], R.version["os"])))
-options(repos = c(CRAN = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"))
+options(repos = c(CRAN = "https://packagemanager.rstudio.com/cran/__linux__/jammyt/latest"))
 options(BioC_mirror = "https://packagemanager.rstudio.com/bioconductor")
 ```
 

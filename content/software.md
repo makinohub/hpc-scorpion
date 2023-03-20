@@ -6,29 +6,28 @@ weight = 20
 
 ## OS
 
-Ubuntu 20.04 LTS (Focal Fossa)
+Ubuntu 22.04 LTS (Jammy Jellyfish)
 
 ### System Library
 
 `/usr/bin`, `/bin`
 
 - Shells
-    - bash 5.0.17
-    - zsh 5.8
+    - bash 5.1.16
+    - zsh 5.8.1
 - Editors
-    - emacs 26.3
-    - vi 8.1
-    - nano 4.8
+    - emacs 27.1
+    - vim 8.2
+    - nano 6.2
 - Compilers and interpreters
-    - gcc 9.4.0
-    - clang 10.0
-    - python 2.7.18
-    - python3 3.8.10
-    - ruby 2.7.0
-    - R 4.2.1
+    - gcc 11.3.0
+    - clang 14.0
+    - python3 3.10.6
+    - ruby 3.0
+    - R 4.2.3
 - Other tools
-    - git 2.25.1
-    - cmake 3.16.3
+    - git 2.34.1
+    - cmake 3.22.1
 
 Some tools are available in newer version. See below.
 
@@ -49,32 +48,32 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 ### Compilers, Interpreters, and Libraries
 
 - gcc 12.2
-- python 3.10
-- boost 1.79
+- python 3.11
+- boost 1.81
 - eigen 3.4.0
-- gsl 2.7
+- gsl 2.7.1
 
 ### General tools
 
-- tmux 3.3
-- cmake 3.24
-- git 2.37
-- emacs 28.1
-- nano 6.4
+- tmux 3.3a
+- cmake 3.26
+- git 2.40
+- emacs 28.2
+- nano 7.2
 
 ### Bioinformatics tools
 
-- bcftools 1.16
+- bcftools 1.17
 - bedtools 2.30
 - blast 2.13
 - blat 36
-- bowtie2 2.4.5
+- bowtie2 2.5.1
 - bwa 0.7.17
 - fastp 0.23.2
-- gatk 4.2.0
+- gatk 4.3.0
 - hisat2 2.2.1
-- hmmer 3.3
-- htslib 1.16
+- hmmer 3.3.2
+- htslib 1.17
 - kent-tools 401
 - lastz 1.04.22
 - libsequence 1.9.8
@@ -85,12 +84,12 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - PLINK v1.90b5
 - PHAST v1.6
 - RAxML 8.2.12
-- RepeatMasker 4.0.7
-- samtools 1.16
-- SeqKit 2.3
+- RepeatMasker 4.1.3
+- samtools 1.17
+- SeqKit 2.4
 - SnpEff 4.3
-- sratoolkit 3.0
-- STAR 2.7.5
+- sratoolkit 3.0.3
+- STAR 2.7.10
 - stringtie 2.1.4
 - Trinity 2.11
 - varscan 2.4.4

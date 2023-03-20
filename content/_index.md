@@ -8,6 +8,9 @@ weight = 1
 
 ## News
 
+2023-03-20
+: OS upgrade: Ubuntu 20.04 LTS (Focal Fossa) → Ubuntu 22.04 LTS (Jammy Jellyfish).
+
 2023-03-01
 : System shutdown for the scheduled power outage.
 
