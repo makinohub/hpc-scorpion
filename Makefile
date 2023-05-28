@@ -1,13 +1,13 @@
 .DEFAULT_GOAL := all
-.PHONY: all clean private public deploy
+.PHONY: all clean development public deploy
 
-all: private
+all: development
 	@:
 
 watch:
 	hugo -w
 
-private:
+development:
 	hugo
 
 public:
@@ -17,4 +17,4 @@ deploy:
 	rsync -auvz public/ scorpion:/var/www/html/
 
 clean:
-	$(RM) -r private/* public/*
+	$(RM) -r development/* public/*
