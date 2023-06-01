@@ -1,0 +1,8 @@
+[[main]]
+    name = "Admin"
+    identifier = "admin"
+    weight = 50
+[[main]]
+    name = "Log"
+    identifier = "log"
+    weight = 60

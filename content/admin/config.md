@@ -1,7 +1,9 @@
 +++
-title = "Admin"
-menu = "main"
+title = "Config"
 draft = true
+[menu.main]
+  parent = "admin"
+  weight = -255
 +++
 
 ## Power
