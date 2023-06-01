@@ -20,139 +20,54 @@ draft = true
 1.  Run `sudo shutdown -h now` to stop the head node.
 
 
-## Documentation
+## Network
 
-### Preparation
+### SSH
 
-1.  Install [Hugo](https://gohugo.io/) on your local machine.
+```conf
+# /etc/ssh/sshd_config
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+UsePAM no
 
-1.  Fork [heavywatal/hpc-scorpion](https://github.com/heavywatal/hpc-scorpion) to your account.
-
-1.  Clone your fork repository to your local machine:
-
-    ```sh
-    REPO=https://github.com/{YOUR_NAME_HERE}/hpc-scorpion.git
-    git clone -b master --single-branch --recurse-submodules $REPO
-    cd hpc-scorpion/
-    ```
-
-1.  Set `upstream` repository:
-    `git remote add upstream https://github.com/heavywatal/hpc-scorpion.git`
+# /etc/ssh/ssh_config.d/scorpion.conf
+host localhost 192.168.1.* scorpion*
+  GSSAPIAuthentication no
+  StrictHostKeyChecking no
+```
+`sudo service ssh restart`
 
 
-### Routine
+### NFS
 
-1.  Fetch and merge any updates in `upstream` to your `origin`.
-
-1.  Start a local hugo server to preview the output:
-    `hugo -Dw server`<br>
-    - View: http://localhost:1313/hpc-scorpion/
-      (the port may vary)
-    - Stop: <kbd>ctrl</kbd><kbd>c</kbd>
-
-1.  Edit some markdown files in `content/`.
-    The output HTML gets updated immediately by the hugo server.
-
-1.  Make a new branch to commit the updates.
-
-1.  Make a Pull Request to [heavywatal/hpc-scorpion](https://github.com/heavywatal/hpc-scorpion).
-
-
-### Deploy document
-
+Compute nodes mount `/home` of the head node via NFS.
+Use `autofs`, not `/etc/fstab`:
 ```sh
-make public && make deploy
+df -h
+
+# /etc/auto.master
+/misc   /etc/auto.misc
+
+# /etc/auto.misc
+home    -rw,intr,lookupcache=none        192.168.1.100:/home
 ```
 
-1.  Generate public documents.
+### Firewall
 
-1.  Copy generated documents to `scorpion:/var/www/html/`.
+```sh
+sudo ufw status
+sudo ufw allow ssh
+sudo ufw allow "Apache Full"
+sudo ufw allow from 192.168.1.0/24 to any
+sudo ufw reload
+sudo ufw status
+```
 
-
-
-## Add a new user
-
-1.  Check a new entry on [Google Form](https://docs.google.com/forms/d/1Lb1Mu07HyLxTPJO2IPQPoYidoHg_VXgB46zeS2lxQJs/edit)
-
-1.  Create an account:
-
-    ```sh
-    NEWUSER=______
-    sudo adduser ${NEWUSER}
-    ```
-
-    Generate random password (e.g., copy partial sequence from ssh public key),
-    and forget it.
-
-1.  Update NIS:
-
-    ```sh
-    sudo make -C /var/yp
-    sudo ypbind -c
-    sudo ypcat passwd
-    ```
-
-1.  Configure SSH:
-
-    ```sh
-    sudo mkdir /home/${NEWUSER}/.ssh
-    sudo vim /home/${NEWUSER}/.ssh/authorized_keys
-    sudo chmod 700 /home/${NEWUSER}/.ssh
-    sudo chmod 600 /home/${NEWUSER}/.ssh/authorized_keys
-    sudo chown -R ${NEWUSER}:users /home/${NEWUSER}/.ssh
-    ```
-
-1.  Add the user to
-    [scorpion-tohoku](https://groups.google.com/forum/#!forum/scorpion-tohoku):
-    "Manage" => "Direct add members".
-    Message example:
-
-    ```
-    Your email address has been registered to scorpion-tohoku mailing list.
-    Various notifications such as server maintenance and updates will be delivered.
-    You can also post questions and requests here.
-    ```
-
-1.  Send an email to them:
-
-    ```
-    Dear ______,
-    CC: Prof. ______,
-
-    You have been successfully registered as a user of the Scorpion system.
-    Try logging in to the server with the following command:
-
-    ssh scorpion
-    or
-    ssh ______@scorpion.biology.tohoku.ac.jp
-
-    Best,
-    Watal
-    ```
-
-### Remove a user
-
-1.  `sudo userdel --remove ${THE_USER}`
-1.  Update NIS
-1.  Remove the user from [scorpion-tohoku](https://groups.google.com/forum/#!forum/scorpion-tohoku):
-    "☑ Select => ⊖ Remove member"
-
-
-## Initial settings
-
--   Modify `/etc/adduser.conf`:
-    ```sh
-    USERGROUPS=no
-    DIR_MODE=0700
-    ```
--   Clean `/etc/skel/`.
--   Create `/etc/profile.d/scorpion.sh` to set `PATH` for all the users.
--   Disable `motd`:
-    ```sh
-    cd /etc/update-motd.d
-    sudo mkdir disabled
-    sudo mv *-* disabled/
-    ```
+Enable NAT forwarding:
+```sh
+# /etc/default/ufw
+DEFAULT_FORWARD_POLICY="ACCEPT"
+```
 
 
 ## Install softwares
@@ -161,7 +76,7 @@ make public && make deploy
 
 ```
 sudo apt update
-sudo apt install build-essential zsh emacs g++-8 clang-8
+sudo apt install build-essential zsh emacs
 sudo apt install libblas-dev liblapack-dev libatlas-base-dev f2c
 ```
 
@@ -171,7 +86,6 @@ https://docs.brew.sh/Homebrew-on-Linux
 
 - If the software is available on Homebrew, use it.
 - `brew` must be executed by a non-root user.
-- Unlink `gcc` to remove it from `PATH`.
 - Append `eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)` to `/etc/profile.d/scorpion.sh`.
 
 
@@ -199,7 +113,8 @@ Install R from the official repository:
 sudo apt install --no-install-recommends software-properties-common dirmngr
 wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
-sudo apt update
+sudo apt update && apt list --upgradable
+sudo apt upgrade
 sudo apt install r-base r-base-dev
 ```
 
@@ -308,46 +223,12 @@ pak::pkg_install(rownames(stdpkgs), lib = .Library)
 - If the software does not provide any installation method,
   move the whole directory to `/home/local/Cellar/` with a version number,
   and create symlinks to `/home/local/bin`, `include`, `lib`, and so on.
-
-
-## PBS
-
-`/etc/pbs.conf` in head node:
-```ini
-PBS_EXEC=/opt/pbs
-PBS_SERVER=scorpion
-PBS_START_SERVER=1
-PBS_START_SCHED=1
-PBS_START_COMM=1
-PBS_START_MOM=0
-PBS_HOME=/var/spool/pbs
-PBS_CORE_LIMIT=unlimited
-PBS_SCP=/usr/bin/scp
-```
-
-`PBS_START_MOM=1` in compute nodes.
-
-Some config files and logs are stored in `$PBS_HOME` (`/var/spool/pbs/`).
-
-
-### Configuring the Server and Queues
-
-```sh
-man /opt/pbs/bin/qmgr
-
-# interactively
-qmgr
-
-# with stdin
-echo "print server" | qmgr
-qmgr < input_file
-
-# with command-line arguments
-qmgr -c "print server"
-qmgr -c "set server job_history_enable=True"
-qmgr -c "set server job_history_duration=720:00:00"
-```
-
+- Disable `motd`:
+  ```sh
+  cd /etc/update-motd.d
+  sudo mkdir disabled
+  sudo mv *-* disabled/
+  ```
 
 ## Install hardwares
 
