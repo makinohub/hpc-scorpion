@@ -6,6 +6,19 @@ draft = true
   weight = -255
 +++
 
+
+## Server room
+
+### Air conditioner and ventilation
+
+- Leave the **AC on** to keep the room temperature below 27℃.
+- Leave the **ventilation off** unless necessary.
+- **Never use the heat exchange ventilation in summer**
+  because it causes condensation and leakage problems.
+  The AC should not be configured extremely cold in the same reason.
+  It is not a general problem, but just our infrastructure is very poor.
+
+
 ## Power
 
 ### Boot
