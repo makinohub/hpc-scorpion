@@ -85,7 +85,6 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - PLINK v1.90b5
 - PHAST v1.6
 - RAxML 8.2.12
-- RepeatMasker 4.1.3
 - samtools 1.18
 - SeqKit 2.5.1
 - SnpEff 4.3
@@ -95,6 +94,11 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - Trinity 2.11
 - varscan 2.4.4
 - velvet 1.2.10
+
+`/home/local/biocontainers/bin`
+
+- RepeatMasker 4.1.3
+- orthofinder 2.5.5
 
 `/home/local/bin`
 
@@ -106,7 +110,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 ### Python packages
 
-`/home/linuxbrew/.linuxbrew/lib/python3.11/site-packages/`
+`/home/linuxbrew/.linuxbrew/lib/python3.X/site-packages/`
 
 - arviz
 - biopython
