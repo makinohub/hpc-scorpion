@@ -151,6 +151,9 @@ qstat -x
 
 # See the detail of a job
 qstat -fx <PBS_JOBID>
+
+# How to read qstat
+man qstat
 ```
 
 ### Delete a job
@@ -180,12 +183,15 @@ An example job script `hello.sh`:
 #!/bin/bash
 #PBS -N hello
 #PBS -l select=1:ncpus=1:mem=1gb
-
+date -Iseconds
+hostname
 pwd
 cd $PBS_O_WORKDIR
 pwd
+
 echo "Hello, world!"
 sleep 60
+date -Iseconds
 ```
 
 An example of an array job `array.sh`:
@@ -195,11 +201,16 @@ An example of an array job `array.sh`:
 #PBS -N array-ms
 #PBS -l select=1:ncpus=1:mem=1gb
 #PBS -J 0-3
-
+date -Iseconds
+hostname
 cd $PBS_O_WORKDIR
+pwd
+
 param_range=($(seq 5.0 0.5 6.5))  # (5.0, 5.5, 6.0, 6.5)
 theta=${param_range[@]:${PBS_ARRAY_INDEX}:1}
 ms 4 2 -t $theta
+
+date -Iseconds
 ```
 
 An equivalent job script in Python:
