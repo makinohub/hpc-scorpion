@@ -124,6 +124,7 @@ qmgr < input_file
 qmgr -c "print server"
 qmgr -c "set server job_history_enable=True"
 qmgr -c "set server job_history_duration=720:00:00"
+qmgr -c "set server default_qsub_arguments='-W umask=22'"
 ```
 
 
