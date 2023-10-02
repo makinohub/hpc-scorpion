@@ -143,7 +143,7 @@ sudo apt install libgeos-dev  # rgeos seurat
 Modify `/etc/R/Renviron.site` in the all nodes:
 ```sh
 #R_LIBS_SITE="/usr/local/lib/R/site-library/:${R_LIBS_SITE}:/usr/lib/R/library"
-R_LIBS_SITE="/home/local/lib/R/library/%v"
+R_LIBS_SITE="/home/antares/.R/library/%v"
 R_LIBS_USER='~/.R/library/%v'
 ```
 
@@ -156,12 +156,12 @@ options(BioC_mirror = "https://packagemanager.rstudio.com/bioconductor")
 
 Create site library:
 ```sh
-mkdir -p /home/local/lib/R/library/4.2
+mkdir -p /home/antares/.R/library/4.3
 ```
 
 Install packages to site library as `root`:
 ```sh
-sudo MAKEFLAGS=-j8 R --no-save --no-restore-data
+MAKEFLAGS=-j8 R --no-save --no-restore-data
 ```
 ```r
 .Library.site
@@ -169,7 +169,7 @@ sudo MAKEFLAGS=-j8 R --no-save --no-restore-data
 getOption("repos")
 source("https://docs.rstudio.com/rspm/admin/check-user-agent.R")
 
-install.packages("pak", lib = .Library.site)
+install.packages("pak")
 
 pkgs = "
 ape
@@ -192,7 +192,7 @@ Seurat
 tidyverse
 "
 pkgs = readLines(textConnection(trimws(pkgs)))
-pak::pkg_install(pkgs, lib = .Library.site)
+pak::pkg_install(pkgs)
 
 biopkgs = "
 Biostrings
@@ -204,10 +204,10 @@ topGO
 VariantAnnotation
 "
 biocpkgs = readLines(textConnection(trimws(biopkgs)))
-pak::pkg_install(biocpkgs, lib = .Library.site)
+pak::pkg_install(biocpkgs, lib)
 
 pak::repo_add(stan = "https://mc-stan.org/r-packages")
-pak::pkg_install("cmdstanr", lib = .Library.site)
+pak::pkg_install("cmdstanr", lib)
 library(cmdstanr)
 check_cmdstan_toolchain()
 install_cmdstan(cores = 4)
@@ -231,11 +231,11 @@ pak::pkg_install(rownames(stdpkgs), lib = .Library)
 
 ### Others
 
-- Download an archive to `/home/local/src/`
-- Install it with a prefix `/home/local`
+- Download an archive to `/home/antares/src/`
+- Install it with a prefix `/home/antares`
 - If the software does not provide any installation method,
-  move the whole directory to `/home/local/Cellar/` with a version number,
-  and create symlinks to `/home/local/bin`, `include`, `lib`, and so on.
+  move the whole directory to `/home/antares/Cellar/` with a version number,
+  and create symlinks to `/home/antares/bin`, `include`, `lib`, and so on.
 - Disable `motd`:
   ```sh
   cd /etc/update-motd.d

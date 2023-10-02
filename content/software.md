@@ -43,7 +43,7 @@ Some tools are available in newer version. See below.
 
 Additional tools are installed with [Homebrew](https://docs.brew.sh/)
 to `/home/linuxbrew/.linuxbrew/` if available.
-Otherwise, they are manually installed to `/home/local/`.
+Otherwise, they are manually installed to `/home/antares/`.
 The environment variable `PATH` for their `bin`s is preset for all users.
 
 ### Compilers, Interpreters, and Libraries
@@ -95,12 +95,12 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - varscan 2.4.4
 - velvet 1.2.10
 
-`/home/local/biocontainers/bin`
+`/home/antares/biocontainers/bin`
 
 - RepeatMasker 4.1.3
 - orthofinder 2.5.5
 
-`/home/local/bin`
+`/home/antares/bin`
 
 - [ms](http://home.uchicago.edu/~rhudson1/source/mksamples.html)
 - RSEM 1.3.3
@@ -133,7 +133,7 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 
 ### R packages
 
-`/home/local/lib/R/library`
+`/home/antares/.R/library`
 
 - ape
 - BioConductor (Biostrings, GenomicRanges, *etc.*)

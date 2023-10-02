@@ -32,7 +32,7 @@ mv /var/spool/pbs /var/spool/pbs-pro
 
 Download the latest source, and read `INSTALL`:
 ```sh
-cd /home/local/src/
+cd /home/antares/src/
 [ -e "openpbs" ] || git clone https://github.com/openpbs/openpbs.git
 cd openpbs/
 git pull
