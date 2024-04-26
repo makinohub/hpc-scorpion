@@ -2,7 +2,7 @@ baseURL = "http://localhost/hpc-scorpion/"
 publishDir = "development"
 buildDrafts = true
 title = "Scorpion — HPC cluster of biology.tohoku.ac.jp"
-defaultContentLanguage = ""
+defaultContentLanguage = "en"
 noTimes = true
 disableKinds = ["RSS"]
 
