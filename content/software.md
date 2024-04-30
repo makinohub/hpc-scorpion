@@ -49,56 +49,53 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 ### Compilers, Interpreters, and Libraries
 
 - gcc 13.2
-- python 3.11
-- boost 1.82
+- python 3.12
+- boost 1.85
 - eigen 3.4.0
 - gsl 2.7.1
 
 ### General tools
 
-- tmux 3.3a
-- cmake 3.27
-- git 2.42
-- emacs 29.1
-- nano 7.2
+- tmux 3.4
+- cmake 3.29
+- git 2.45
 
 ### Bioinformatics tools
 
-- bcftools 1.18
+- bcftools 1.20
 - bedtools 2.31
-- blast 2.14
-- blat 36
-- bowtie2 2.5.1
-- bwa 0.7.17
+- blast 2.15
+- bowtie2 2.5.3
+- bwa 0.7.18
 - fastp 0.23.4
 - gatk 4.3.0
 - hisat2 2.2.1
 - hmmer 3.4
-- htslib 1.18
-- kent-tools 401
+- htslib/samtools 1.20
 - lastz 1.04.22
 - libsequence 1.9.8
-- mafft 7.490
-- MEME 5.1.0
+- mafft 7.526
 - multiz 20191003
 - paml 4.9j
 - PLINK v1.90b5
 - PHAST v1.6
 - RAxML 8.2.12
-- samtools 1.18
-- SeqKit 2.5.1
+- SeqKit 2.8.1
 - SnpEff 4.3
-- sratoolkit 3.0.7
+- sratoolkit 3.1.0
 - STAR 2.7.10
 - stringtie 2.1.4
-- Trinity 2.11
 - varscan 2.4.4
 - velvet 1.2.10
 
-`/home/antares/biocontainers/bin`
+`/home/antares/sif/bin`
 
-- RepeatMasker 4.1.3
+- MEME 5.5.5
 - orthofinder 2.5.5
+- RepeatMasker 4.1.5
+- salmon 1.10.3
+- Trinity 2.15.1
+
 
 `/home/antares/bin`
 
@@ -108,27 +105,14 @@ The environment variable `PATH` for their `bin`s is preset for all users.
 - tmhmm 2.0c
 
 
-### Python packages
+### Python
 
-`/home/linuxbrew/.linuxbrew/lib/python3.X/site-packages/`
+- `/usr/bin/python3@ -> python3.10`
+- `/usr/bin/python3.10`
+- `/usr/bin/python3.12`
 
-- arviz
-- biopython
-- cmdstanpy
-- matplotlib
-- numpy
-- pandas
-- polars
-- Pillow
-- psutil
-- pytest
-- requests
-- ruff
-- scikit-learn
-- scipy
-- seaborn
-- statsmodels
-- tqdm
+The system does not provide any package globally according to [PEP 668](https://peps.python.org/pep-0668/).
+You can install packages to your local environment with [venv](https://docs.python.org/3/library/venv.html).
 
 
 ### R packages

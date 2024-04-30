@@ -104,17 +104,14 @@ https://docs.brew.sh/Homebrew-on-Linux
 
 ### Python
 
-Install python3 and some packages:
+Install newer versions via [ppa:deadsnakes/ppa](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa).
 ```sh
-brew install python
-$(brew --prefix)/bin/pip3 install -U pip setuptools wheel
-$(brew --prefix)/bin/pip3 install -U --upgrade-strategy=eager -r /home/linuxbrew/requirements.txt
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
 ```
 
-Check updates:
-```sh
-$(brew --prefix)/bin/pip3 list --outdated
-```
+Do not `pip3 install` globally according to [PEP 668](https://peps.python.org/pep-0668/).
+
 
 ### R
 
@@ -156,7 +153,7 @@ options(BioC_mirror = "https://packagemanager.rstudio.com/bioconductor")
 
 Create site library:
 ```sh
-mkdir -p /home/antares/.R/library/4.3
+mkdir -p /home/antares/.R/library/4.4
 ```
 
 Install packages to site library as `root`:
@@ -204,10 +201,10 @@ topGO
 VariantAnnotation
 "
 biocpkgs = readLines(textConnection(trimws(biopkgs)))
-pak::pkg_install(biocpkgs, lib)
+pak::pkg_install(biocpkgs)
 
 pak::repo_add(stan = "https://mc-stan.org/r-packages")
-pak::pkg_install("cmdstanr", lib)
+pak::pkg_install("cmdstanr")
 library(cmdstanr)
 check_cmdstan_toolchain()
 install_cmdstan(cores = 4)
