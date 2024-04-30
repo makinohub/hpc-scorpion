@@ -8,14 +8,11 @@ weight = 1
 
 ## News
 
-2023-08-27
+2024-08-25
 : System shutdown for the scheduled power outage.
 
 2023-03-20
 : OS upgrade: Ubuntu 20.04 LTS (Focal Fossa) → Ubuntu 22.04 LTS (Jammy Jellyfish).
-
-2023-03-01
-: System shutdown for the scheduled power outage.
 
 2022-08-28
 : OS upgrade: Ubuntu 18.04 LTS (Bionic Beaver) → Ubuntu 20.04 LTS (Focal Fossa).
